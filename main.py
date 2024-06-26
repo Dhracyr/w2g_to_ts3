@@ -70,22 +70,22 @@ def open_foundry(foundry_url):
 
 
 def main():
-    if w2g_apiKey == '':
+    if w2g_apiKey == 'YOUR_W2G_API_KEY':
         print("No Watch2Gether API Key was set. Skipping...")
     else:
         invite_link = create_w2g_lobby()
         pyperclip.copy(invite_link)
-        if teamspeak_apiKey == '':
+        if teamspeak_apiKey == 'YOUR_TEAMSPEAK_API_KEY':
             print("No Teamspeak API Key was set. The link will be pasted in 5 seconds...")
             time.sleep(5)
             paste_into_teamspeak()
         else:
             send_to_teamspeak(invite_link)
-    if dnd_beyond_url == '':
+    if dnd_beyond_url == 'YOUR_DND_BEYOND_URL':
         print("No DnD-Beyond Character URL was set. Skipping...")
     else:
         open_dnd_beyond(dnd_beyond_url)
-    if foundry_url == '':
+    if foundry_url == 'YOUR_FOUNDRY_URL':
         print("No DnD-Lobby URL was set. Skipping...")
     else:
         open_foundry(foundry_url)

@@ -31,12 +31,12 @@ Create a `config.json` file in the same directory as the script with the followi
 {
 "teamspeak_apiKey": "YOUR_TEAMSPEAK_API_KEY",
 "w2g_apiKey": "YOUR_W2G_API_KEY",
-"dnd_beyond_url": "https://www.dndbeyond.com/characters/your_character_id",
-"foundry_url": "https://foundryvtt.yourserver.com/game"
+"dnd_beyond_url": "YOUR_DND_BEYOND_URL",
+"foundry_url": "YOUR_FOUNDRY_URL"
 }
 ```
 
-Replace the placeholder values with your actual API keys and URLs.
+Replace the placeholder values with your actual API keys and URLs. If you don't want a feature from this json file, just leave it as is and it will skip it.
 
 ## Usage
 
