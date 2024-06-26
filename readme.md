@@ -25,7 +25,7 @@ pip install -r requirements.txt -v
 
 ## Configuration
 
-Create a `config.json` file in the same directory as the script with the following content:
+Open the `config.json` file in the same directory as the script which will show the following content:
 
 ```json
 {
@@ -45,41 +45,24 @@ Replace the placeholder values with your actual API keys and URLs. If you don't 
     - Go to \`Tools -> Options -> Addons\` and enable the \`Client Query\` plugin.
     - Go to \`Tools -> Options -> Client Query\` and set up your API key or password.
 
-2. **Run the Setup Script**:
+2. **Get your W2G API Key**:
+    - Open Watch2Gether, login and go to \`Profile -> Edit profile -> Tools / API\`
+   
+3. **Run the Setup Script**:
    Execute the \`setup.bat\` script to install the necessary packages:
    ```bash
    setup.bat
    ```
 
-3. **Run the Script**:
+4. **Run the Script**:
    ```bash
-   python script.py
+   start.bat
    ```
 
 The script will:
 - Create a Watch2Gether lobby and copy the invite link to the clipboard.
 - If the Teamspeak API key is set, it will post the invite link to Teamspeak. If not, it will paste the link into the chat after 5 seconds.
 - Open the specified DnDBeyond and Foundry VTT URLs in the default web browser.
-
-## Script Overview
-
-### create_w2g_lobby
-Creates a Watch2Gether lobby and returns the invite link.
-
-### paste_into_teamspeak
-Simulates the paste and enter keys to post the invite link into Teamspeak chat.
-
-### send_to_teamspeak
-Connects to the Teamspeak Client Query plugin via telnet and sends the invite link.
-
-### open_dndbeyond
-Opens the specified DnDBeyond URL in the default web browser.
-
-### open_foundry
-Opens the specified Foundry VTT URL in the default web browser.
-
-### main
-Coordinates the creation of the Watch2Gether lobby, posting the invite link to Teamspeak, and opening the DnDBeyond and Foundry VTT URLs.
 
 ## Troubleshooting
 
