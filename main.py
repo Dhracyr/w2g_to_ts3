@@ -82,11 +82,11 @@ def main():
         else:
             send_to_teamspeak(invite_link)
     if dnd_beyond_url == '':
-        print("No DnD-Beyond Character links was set. Skipping...")
+        print("No DnD-Beyond Character URL was set. Skipping...")
     else:
         open_dnd_beyond(dnd_beyond_url)
     if foundry_url == '':
-        print("No DnD-Lobby was set. Skipping...")
+        print("No DnD-Lobby URL was set. Skipping...")
     else:
         open_foundry(foundry_url)
 
