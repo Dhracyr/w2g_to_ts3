@@ -1,5 +1,6 @@
 {
     "w2g_apiKey": "YOUR_W2G_API_KEY",
+    "open_w2g_flag": true,
     "teamspeak_apiKey": "YOUR_TEAMSPEAK_API_KEY",
     "dnd_beyond_url": "YOUR_DND_BEYOND_URL",
     "foundry_url": "YOUR_FOUNDRY_URL"

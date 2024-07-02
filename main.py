@@ -7,12 +7,12 @@ import pyperclip
 import pyautogui
 import time
 
-
 # Load configuration from JSON file
 with open('config.json', 'r') as config_file:
     config = json.load(config_file)
 
 w2g_apiKey = config.get('w2g_apiKey', '')
+open_w2g_flag = config.get('open_w2g_flag', '')
 teamspeak_apiKey = config.get('teamspeak_apiKey', '')
 dnd_beyond_url = config.get('dnd_beyond_url', '')
 foundry_url = config.get('foundry_url', '')
@@ -46,7 +46,8 @@ def paste_into_teamspeak():
 
 
 # Function to connect to Teamspeak and send a message
-def send_to_teamspeak(message, server='localhost', port=25639, teamspeak_apiKey=teamspeak_apiKey, target_mode=2, target=1):
+def send_to_teamspeak(message, server='localhost', port=25639, teamspeak_apiKey=teamspeak_apiKey, target_mode=2,
+                      target=1):
     try:
         tn = telnetlib.Telnet(server, port)
         tn.read_until(b"TS3 Client")
@@ -69,6 +70,10 @@ def open_foundry(foundry_url):
     webbrowser.open(foundry_url)
 
 
+def open_w2g(w2g_url):
+    webbrowser.open(w2g_url)
+
+
 def main():
     if w2g_apiKey == 'YOUR_W2G_API_KEY':
         print("No Watch2Gether API Key was set. Skipping...")
@@ -81,6 +86,8 @@ def main():
             paste_into_teamspeak()
         else:
             send_to_teamspeak(invite_link)
+        if open_w2g_flag:
+            open_w2g(invite_link)
     if dnd_beyond_url == 'YOUR_DND_BEYOND_URL':
         print("No DnD-Beyond Character URL was set. Skipping...")
     else:

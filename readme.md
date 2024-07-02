@@ -30,6 +30,7 @@ Open the `config.json` file in the same directory as the script which will show 
 ```json
 {
 "teamspeak_apiKey": "YOUR_TEAMSPEAK_API_KEY",
+"open_w2g_flag": true,
 "w2g_apiKey": "YOUR_W2G_API_KEY",
 "dnd_beyond_url": "YOUR_DND_BEYOND_URL",
 "foundry_url": "YOUR_FOUNDRY_URL"
@@ -37,6 +38,10 @@ Open the `config.json` file in the same directory as the script which will show 
 ```
 
 Replace the placeholder values with your actual API keys and URLs. If you don't want a feature from this json file, just leave it as is and it will skip it.
+If you dont want to open the new Watch2Gether Lobby right away, change the open_w2g_flag to false:
+```json
+"open_w2g_flag": false,
+```
 
 ## Usage
 
@@ -65,6 +70,13 @@ The script will:
 - Open the specified DnDBeyond and Foundry VTT URLs in the default web browser.
 
 ## Troubleshooting
+- **Read any exceptions by adding 'pause' as last statement in the start.bat**
+    - Edit the ``start.bat`` to look like this to read any exceptions that had been thrown:
+```
+@echo off
+python main.py
+pause
+```
 
 - **Connection Issues with Teamspeak**:
     - Ensure the Client Query plugin is enabled and configured correctly.
