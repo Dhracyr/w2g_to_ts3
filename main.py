@@ -16,6 +16,7 @@ open_w2g_flag = config.get('open_w2g_flag', '')
 teamspeak_apiKey = config.get('teamspeak_apiKey', '')
 dnd_beyond_url = config.get('dnd_beyond_url', '')
 foundry_url = config.get('foundry_url', '')
+w2g_fixedUrl = config.get('w2g_fixedLink', '')
 
 
 # Step 1: Create a Watch2Gether lobby
@@ -62,40 +63,43 @@ def send_to_teamspeak(message, server='localhost', port=25639, teamspeak_apiKey=
         print(f"An error occurred while connecting to Teamspeak: {e}")
 
 
-def open_dnd_beyond(dnd_beyond_url):
-    webbrowser.open(dnd_beyond_url)
-
-
-def open_foundry(foundry_url):
-    webbrowser.open(foundry_url)
-
-
-def open_w2g(w2g_url):
-    webbrowser.open(w2g_url)
+def open_url_in_browser(link):
+    webbrowser.open(link)
 
 
 def main():
-    if w2g_apiKey == 'YOUR_W2G_API_KEY':
-        print("No Watch2Gether API Key was set. Skipping...")
-    else:
-        invite_link = create_w2g_lobby()
-        pyperclip.copy(invite_link)
+    if w2g_fixedUrl != 'YOUR_EXISTING_W2G_LOBBY_URL':
+        pyperclip.copy(w2g_fixedUrl)
         if teamspeak_apiKey == 'YOUR_TEAMSPEAK_API_KEY':
             print("No Teamspeak API Key was set. The link will be pasted in 5 seconds...")
             time.sleep(5)
             paste_into_teamspeak()
         else:
-            send_to_teamspeak(invite_link)
+            send_to_teamspeak(w2g_fixedUrl)
         if open_w2g_flag:
-            open_w2g(invite_link)
+            open_url_in_browser(w2g_fixedUrl)
+    else:
+        if w2g_apiKey == 'YOUR_W2G_API_KEY':
+            print("No Watch2Gether API Key was set. Skipping...")
+        else:
+            invite_link = create_w2g_lobby()
+            pyperclip.copy(invite_link)
+            if teamspeak_apiKey == 'YOUR_TEAMSPEAK_API_KEY':
+                print("No Teamspeak API Key was set. The link will be pasted in 5 seconds...")
+                time.sleep(5)
+                paste_into_teamspeak()
+            else:
+                send_to_teamspeak(invite_link)
+            if open_w2g_flag:
+                open_url_in_browser(invite_link)
     if dnd_beyond_url == 'YOUR_DND_BEYOND_URL':
         print("No DnD-Beyond Character URL was set. Skipping...")
     else:
-        open_dnd_beyond(dnd_beyond_url)
+        open_url_in_browser(dnd_beyond_url)
     if foundry_url == 'YOUR_FOUNDRY_URL':
         print("No DnD-Lobby URL was set. Skipping...")
     else:
-        open_foundry(foundry_url)
+        open_url_in_browser(foundry_url)
 
 
 if __name__ == "__main__":

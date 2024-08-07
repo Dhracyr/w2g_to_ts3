@@ -29,19 +29,22 @@ Open the `config.json` file in the same directory as the script which will show 
 
 ```json
 {
-"teamspeak_apiKey": "YOUR_TEAMSPEAK_API_KEY",
-"open_w2g_flag": true,
-"w2g_apiKey": "YOUR_W2G_API_KEY",
-"dnd_beyond_url": "YOUR_DND_BEYOND_URL",
-"foundry_url": "YOUR_FOUNDRY_URL"
+  "w2g_apiKey": "YOUR_W2G_API_KEY",
+  "w2g_fixedLink": "YOUR_EXISTING_W2G_LOBBY_URL",
+  "open_w2g_flag": true,
+  "teamspeak_apiKey": "YOUR_TEAMSPEAK_API_KEY",
+  "dnd_beyond_url": "YOUR_DND_BEYOND_URL",
+  "foundry_url": "YOUR_FOUNDRY_URL"
 }
 ```
 
 Replace the placeholder values with your actual API keys and URLs. If you don't want a feature from this json file, just leave it as is and it will skip it.
-If you dont want to open the new Watch2Gether Lobby right away, change the open_w2g_flag to false:
+If you don't want to open the new Watch2Gether Lobby right away, change the open_w2g_flag to false:
 ```json
 "open_w2g_flag": false,
 ```
+
+You can replace the value of "w2g_fixedLink" to your own w2g-url to open this instead of a new link everytime.
 
 ## Usage
 
